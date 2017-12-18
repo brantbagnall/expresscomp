@@ -5,5 +5,6 @@
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "massive": "^4.5.0"
-  }
+  },
+  "main": "./server/index.js"
 }

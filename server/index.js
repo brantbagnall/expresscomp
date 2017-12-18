@@ -5,12 +5,22 @@ const express = require('express'),
     massive = require('massive'),
     ctrl = require('./controllers');
 
+// COMP 74C
 const app = express();
 
+// COMP 76F
 app.use(bodyParser.json());
 
 app.use(cors());
 
+// COMP 70C
 massive(process.env.MASSIVE_CONNECTION).then(db =>{
     app.set('db', db)
 })
+
+// COMP 74D-1 and COMP 76C
+app.get('/getAll', ctrl.getAll)
+
+const port = 3030
+
+app.listen(port, ()=> console.log('Listening on port: ' + port))
