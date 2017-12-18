@@ -21,6 +21,13 @@ massive(process.env.MASSIVE_CONNECTION).then(db =>{
 // COMP 74D-1 and COMP 76C
 app.get('/getAll', ctrl.getAll)
 
+// COMP 74D-3
+app.post('/postname', ctrl.postName)
+
+app.post('/createtable', ctrl.createTable)
+
+app.put('/edit/:id/')
+
 const port = 3030
 
 app.listen(port, ()=> console.log('Listening on port: ' + port))
