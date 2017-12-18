@@ -19,15 +19,24 @@ massive(process.env.MASSIVE_CONNECTION).then(db =>{
 })
 
 // COMP 74D-1 and COMP 76C
-app.get('/getAll', ctrl.getAll)
+app.get('/getAll', ctrl.getAll);
 
 // COMP 74D-3
-app.post('/postname', ctrl.postName)
+app.post('/postname', ctrl.postName);
 
-app.post('/createtable', ctrl.createTable)
+app.post('/createtable', ctrl.createTable);
 
-app.put('/edit/:id/')
+// COMP 74D-2
+app.put('/edit/:id', ctrl.editById);
 
-const port = 3030
+app.get('/name', ctrl.searchByFirstName);
+
+// COMP 74D-4
+app.delete('/delete/:id', ctrl.deleteById)
+
+const port = 3030;
 
 app.listen(port, ()=> console.log('Listening on port: ' + port))
+
+// COMP 69B
+// Datatypes affect how fast your database is as well as how big it is. One instance of setting a good datatype is varchar for a first name or last name and setting it to something small like a varchar(30) so your database cannot be killed by useless text.
